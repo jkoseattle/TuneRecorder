@@ -1,0 +1,55 @@
+{
+  "intents": [
+    {
+      "intent": "RecordTune"
+    },
+
+    {
+      "intent": "TempoHelp",
+      "slots": [
+        {
+          "name": "tempoDirective",
+          "type": "TEMPO_DIRECTIVES"
+        }
+      ]
+    },
+
+    {
+      "intent": "BeatsPerMinute",
+      "slots": [
+        {
+          "name": "bpm",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+
+    {
+      "intent": "RecordNote",
+      "slots": [
+        {
+          "name": "pitch",
+          "type": "PITCHES"
+        },
+        {
+          "name": "duration",
+          "type": "DURATIONS"
+        },
+        {
+          "name": "octave",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}

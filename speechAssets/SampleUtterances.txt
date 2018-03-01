@@ -1,0 +1,42 @@
+RecordTune I wanna record a melody
+RecordTune I wanna record a piece
+RecordTune I wanna record a song
+RecordTune I wanna record a tune
+RecordTune I want to record a melody
+RecordTune I want to record a piece
+RecordTune I want to record a song
+RecordTune I want to record a tune
+RecordTune I'd like to record a melody
+RecordTune I'd like to record a piece
+RecordTune I'd like to record a song
+RecordTune I'd like to record a tune
+RecordTune I'm going to record a melody
+RecordTune I'm going to record a piece
+RecordTune I'm going to record a song
+RecordTune I'm going to record a tune
+RecordTune I'm gonna record a melody
+RecordTune I'm gonna record a piece
+RecordTune I'm gonna record a song
+RecordTune I'm gonna record a tune
+RecordTune Let me record a melody
+RecordTune Let me record a piece
+RecordTune Let me record a song
+RecordTune Let me record a tune
+RecordTune Let's record a melody
+RecordTune Let's record a piece
+RecordTune Let's record a song
+RecordTune Let's record a tune
+RecordTune Record a melody
+RecordTune Record a piece
+RecordTune Record a song
+RecordTune Record a tune
+RecordTune Record
+TempoHelp Tempo help
+TempoHelp {tempoDirective}
+BeatsPerMinute {bpm} beats per minute
+BeatsPerMinute {bpm} bpm
+BeatsPerMinute Tempo is {bpm}
+RecordNote {pitch} {octave} {duration}
+RecordNote {duration} {pitch} {octave}
+RecordNote {pitch} note {octave} {duration}
+RecordNote {duration} note {pitch} {octave}
