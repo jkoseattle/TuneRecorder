@@ -23,21 +23,51 @@ var onboardingStateHandlers = Alexa.CreateStateHandler(constants.states.ONBOARDI
 
     'RecordNote': function () {
         var note = {};
+
+        // Assign note pitch
         var pitchName = this.event.request.intent.slots.pitch.value;
-        this.emit(':ask', pitchName);
+
         if (pitchName.search("natural") + pitchName.search("flat") + pitchName.search("sharp") + pitchName.search("rest") == -4) {
             pitchName += ' natural';
         }
-        note.pitchName = pitchName.toUpperCase() + " " + this.event.request.intent.slots.octave.value;
-        note.value = this.event.request.intent.slots.duration.value;
-        note.syllable = getDefaultSyllable(note.pitchName);
-    
-        note.pitchPct = getPitchPct(note.syllable, note.pitchName);
+        note.pitchName = pitchName.toUpperCase();
+
+        // Get the last note entered, to help determine what the next note is
+        var lastNote;
+        var currentTune = this.attributes['tune'];
+        if (currentTune.length > 0) {
+            var lastNote = currentTune[currentTune.length-1];
+        }
+            
+        // Get the new note pitch
+        note.pitchNbr = getPitchNbr(note.pitchName, lastNote.pitchNbr, this.event.request.intent.slots.direction.value);
+
+        // Get the new note duration, or use last duration, or default to quarter note
+        if (this.event.request.intent.slots.duration.value) {
+            note.value = this.event.request.intent.slots.duration.value;
+        } else {
+            if (this.attributes['currentDuration']) {
+                note.value = this.attributes['currentDuration'];
+            } else {
+                note.value = "quarter";
+            }
+        }
+        this.attributes['currentDuration'] = note.value;
+
+        // Get the default syllable to use based on the pitch
+        note.syllable = getDefaultSyllable(note.pitchNbr);
+
+        // Calculate pitch and rate percentages to use in SSML
+        note.pitchPct = getPitchPct(note.syllable, note.pitchNbr);
         note.ratePct = getRatePct(note.syllable, note.value, this.attributes['tempo']);
-        // this.emit(':ask', note.ratePct);
+
+        // Finally, format the actual SSML
         note.ssml = formatSSML(note);
 
+        // Add this note to the tune
         this.attributes['tune'].push(note);
+
+
         var theTune = singTune(this.attributes['tune']);
         this.emit(':ask', theTune);
     },

@@ -36,8 +36,8 @@
           "type": "DURATIONS"
         },
         {
-          "name": "octave",
-          "type": "AMAZON.NUMBER"
+          "name": "direction",
+          "type": "DIRECTIONS"
         }
       ]
     },

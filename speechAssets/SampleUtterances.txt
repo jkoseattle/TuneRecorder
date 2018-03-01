@@ -36,7 +36,7 @@ TempoHelp {tempoDirective}
 BeatsPerMinute {bpm} beats per minute
 BeatsPerMinute {bpm} bpm
 BeatsPerMinute Tempo is {bpm}
-RecordNote {pitch} {octave} {duration}
-RecordNote {duration} {pitch} {octave}
-RecordNote {pitch} note {octave} {duration}
-RecordNote {duration} note {pitch} {octave}
+RecordNote {pitch}
+RecordNote {duration} note {pitch}
+RecordNote {direction} {pitch}
+RecordNote {duration} note {direction} {pitch}

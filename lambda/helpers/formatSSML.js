@@ -4,7 +4,10 @@ var constants = require('../constants/constants');
 
 module.exports = function formatSSML(aNote) {
 
-  var answ = '<prosody ';
+  // Quick silent break to reset Speechcons
+  var answ = `<prosody volume="silent" pitch="+0%" rate="5000%"><say-as interpret-as="interjection">jink</say-as> </prosody>`;
+  
+  answ += '<prosody ';
   
   answ += 'pitch="';
   answ += aNote.pitchPct + '%" ';

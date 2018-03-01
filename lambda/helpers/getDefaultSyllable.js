@@ -11,20 +11,11 @@ var constants = require('../constants/constants');
 var syllables = require('../data/syllables');
 var pitchTable = require('../data/pitchTable');
 
-module.exports = function getDefaultSyllable(aPitchName) {
+module.exports = function getDefaultSyllable(aPitchNbr) {
 
-  // Check if all the phrases have been used already, and if so return error phrase
   var pitch;
   var pitchDiffs = [];
   var pitch_lo;
-
-  for (let i = 0; i < pitchTable.length; i++) {
-    const element = pitchTable[i];
-    if (element.name.toUpperCase() == aPitchName.toUpperCase()) {
-      pitch = element.pitchNbr;
-      break;
-    }
-  }
 
   for (let i = 0; i < syllables.length; i++) {
     const element = syllables[i];

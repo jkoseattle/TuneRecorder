@@ -4,7 +4,7 @@ var constants = require('../constants/constants');
 var syllables = require('../data/syllables');
 var pitchTable = require('../data/pitchTable');
 
-module.exports = function getPitchPct(aSyllable, aPitchName) {
+module.exports = function getPitchPct(aSyllable, aPitchNbr) {
 
     // Get pitch_lo from selected syllable
     var pitch_lo;
@@ -12,16 +12,6 @@ module.exports = function getPitchPct(aSyllable, aPitchName) {
         const element = syllables[i];
         if (element.name == aSyllable) {
             pitch_lo = element.pitch_lo;
-            break;
-        }
-    }
-
-    // Get absolute pitch for selected pitch name
-    var abs_pitch;
-    for (let i = 0; i < pitchTable.length; i++) {
-        const element = pitchTable[i];
-        if (element.name == aPitchName) {
-            abs_pitch = element.pitchNbr;
             break;
         }
     }

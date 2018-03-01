@@ -11,8 +11,12 @@ var constants = Object.freeze({
 
     demo_count: 8,
 
-    pitchPcts: ["-25", "-20", "-15", "-10", "-5", "+0", "+7", "+14", "+21", "+28", "+37", "+44", "+50"]
+    pitchPcts: ["-25", "-20", "-15", "-10", "-5", "+0", "+7", "+14", "+21", "+28", "+37", "+44", "+50"],
 
+    directions: {
+      UP: "up",
+      DOWN: 'down'
+    }
   });
   
   module.exports = constants;
